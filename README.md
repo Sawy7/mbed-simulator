@@ -12,6 +12,14 @@
  - Readme below is modified to reflect updated/advised setup method.
  - This also sets up a modified version of FreeRTOS-Emulator repo by @alxhoff.
  - It sets up some of my favourite editors and programs too (sublime, terminator)
+
+### Documentation
+ - Neither mbed OS 6 nor mbed 2 _(which used to keep showing up on google search)_ is not even remotely compatible with 5.x. So please don't refer to those docs.
+ - Original mbed documentation is neatly hosted at https://os.mbed.com/docs/mbed-os/v5.15/introduction/index.html
+   - As much as 5.15 API is mostly compatible with 5.11, some things may not be. And it will surely be deprecated soon.
+ - Original documentation can be accessed from here: https://github.com/ARMmbed/mbed-os-5-docs/blob/5.11/docs/introduction/introduction.md
+   - If that's gone too by the time you're here, head here for last resort: https://github.com/alpsayin/mbed-os-5-docs/tree/5.11/docs/introduction/introduction.md
+   - Of course this isn't as navigable as the original hosted version. Let me know if you know what's the builder for this and I'll apply and host.
  
 ### TL;DR ?
 
