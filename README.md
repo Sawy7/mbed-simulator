@@ -2,18 +2,20 @@
 
 ### Motivation
  - While *some* of the instructions from the original readme work, most of them don't anymore because of version mismatches and whatnot. 
- - What's extra frustrating is that even the docker image doesn't work
- - Not all the demos that are online exist in the original repository.
+ - What's extra frustrating is that even the docker image doesn't work 
+   - I mean is anyone really surprised? That a docker image doesnt "just works out of the box"?
+ - Not all the demos that are online exist in the [original repository](https://github.com/ARMmbed/mbed-simulator) nor the [originally original repository](https://github.com/janjongboom/mbed-simulator).
  - I need my Embedded Systems students to have an independent (of internet, arm server outages etc.) development environment.
  
 ### What's new?
- - Has a stdin serial demo also thanks to @janjongboom
+ - Has a stdin serial demo also thanks to [@janjongboom](https://github.com/janjongboom)
  - We almost made the MQTT demo work (but socket.recv function does not timeout so the program hangs).
  - Readme below is modified to reflect updated/advised setup method.
- - This also sets up a modified version of FreeRTOS-Emulator repo by @alxhoff.
+ - This also sets up a modified version of [FreeRTOS-Emulator repo](https://github.com/alxhoff/freeRTOS-Emulator) by [@alxhoff](https://github.com/alxhoff).
  - It sets up some of my favourite editors and programs too (sublime, terminator)
 
 ### Documentation
+ - A quick introduction video (youtube) can be found [here](https://www.youtube.com/watch?v=FjyCILASznE) and advice on running it on a VM can be found [here](https://www.youtube.com/watch?v=guM6YvnveaM).
  - Neither mbed OS 6 nor mbed 2 _(which used to keep showing up on google search)_ is not even remotely compatible with 5.x. So please don't refer to those docs.
  - Original mbed documentation is neatly hosted at https://os.mbed.com/docs/mbed-os/v5.15/introduction/index.html
    - As much as 5.15 API is mostly compatible with 5.11, some things may not be. And it will surely be deprecated soon.
@@ -24,6 +26,15 @@
 ### TL;DR ?
 
  - Run `setup_script.bash`
+
+ ### Video links 
+ #### mbed and mbed Simulator Introduction
+ [![mbed and mbed Simulator Introduction](https://img.youtube.com/vi/FjyCILASznE/hqdefault.jpg)](https://www.youtube.com/watch?v=FjyCILASznE)
+ #### Hosting and Running mBed Simulator (api v5.11) on a VM
+ [![Hosting and Running mBed Simulator (api v5.11) on a VM](https://img.youtube.com/vi/guM6YvnveaM/hqdefault.jpg)](https://www.youtube.com/watch?v=guM6YvnveaM)
+ 
+
+### Original readme ensues ...
 
 # Experimental simulator for Mbed OS 5 applications
 
