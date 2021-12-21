@@ -1,0 +1,15 @@
+{
+    "peripherals": [
+        { "component": "LedRed", "args": { "LED" : "PinNames.p21" } },
+        { "component": "LedYellow", "args": { "LED" : "PinNames.p22" } },
+        { "component": "LedBlue", "args": { "LED" : "PinNames.p23" } },
+        { "component": "LedWhite", "args": { "LED" : "PinNames.p24" } },
+        { "component": "PushButton", "args": { "Button" : "PinNames.p5" } },
+        { "component": "PushButton", "args": { "Button" : "PinNames.p6" } },
+        { "component": "PushButton", "args": { "Button" : "PinNames.p7" } },
+        { "component": "PushButton", "args": { "Button" : "PinNames.p8" } },
+        { "component": "Switch", "args": { "Switch" : "PinNames.p20" } },
+        { "component": "Potentiometer", "args": { "Potentiometer" : "PinNames.p19" } },
+        { "component": "ST7789H2", "args": {} }
+    ]
+}
