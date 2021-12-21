@@ -1,4 +1,4 @@
-# Modded fork of the experimental simulator for Mbed OS 5.11 applications
+# Modded fork of the experimental simulator for Mbed OS 5.10 applications
 
 ### Motivation
  - While *some* of the instructions from the original readme work, most of them don't anymore because of version mismatches and whatnot. 
@@ -18,9 +18,9 @@
  - A quick introduction video (youtube) can be found [here](https://www.youtube.com/watch?v=FjyCILASznE) and advice on running it on a VM can be found [here](https://www.youtube.com/watch?v=guM6YvnveaM).
  - Neither mbed OS 6 nor mbed 2 _(which used to keep showing up on google search)_ is not even remotely compatible with 5.x. So please don't refer to those docs.
  - Original mbed documentation is neatly hosted at https://os.mbed.com/docs/mbed-os/v5.15/introduction/index.html
-   - As much as 5.15 API is mostly compatible with 5.11, some things may not be. And it will surely be deprecated soon.
- - Original documentation can be accessed from here: https://github.com/ARMmbed/mbed-os-5-docs/blob/5.11/docs/introduction/introduction.md
-   - If that's gone too by the time you're here, head here for last resort: https://github.com/alpsayin/mbed-os-5-docs/tree/5.11/docs/introduction/introduction.md
+   - As much as 5.15 API is mostly compatible with 5.10, some things may not be. And it will surely be deprecated soon.
+ - Original documentation can be accessed from here: https://github.com/ARMmbed/mbed-os-5-docs/blob/5.10/docs/introduction/introduction.md
+   - If that's gone too by the time you're here, head here for last resort: https://github.com/alpsayin/mbed-os-5-docs/tree/5.10/docs/introduction/introduction.md
    - Of course this isn't as navigable as the original hosted version. Let me know if you know what's the builder for this and I'll apply and host.
  
 ### TL;DR ?
@@ -30,8 +30,8 @@
  ### Video links 
  #### mbed and mbed Simulator Introduction
  [![mbed and mbed Simulator Introduction](https://img.youtube.com/vi/FjyCILASznE/hqdefault.jpg)](https://www.youtube.com/watch?v=FjyCILASznE)
- #### Hosting and Running mBed Simulator (api v5.11) on a VM
- [![Hosting and Running mBed Simulator (api v5.11) on a VM](https://img.youtube.com/vi/guM6YvnveaM/hqdefault.jpg)](https://www.youtube.com/watch?v=guM6YvnveaM)
+ #### Hosting and Running mBed Simulator (api v5.10) on a VM
+ [![Hosting and Running mBed Simulator (api v5.10) on a VM](https://img.youtube.com/vi/guM6YvnveaM/hqdefault.jpg)](https://www.youtube.com/watch?v=guM6YvnveaM)
  
 
 ### Original readme ensues ...
