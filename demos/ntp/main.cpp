@@ -44,10 +44,17 @@ int main() {
         }
 
         unsigned long epoch = ntohl(recv_buffer) - 2208988800ull;    // 1900-1970
-        printf("\nCurrent time: %s", ctime(( const time_t* )&epoch));
+        printf("\nCurrent time from NTP: %s", ctime(( const time_t* )&epoch));
+        
+        set_time(epoch);
 
         sock.close();
 
-        wait_ms(10000);
+        for(int i=0; i<10; i++)
+        {
+            wait_ms(1000);
+            epoch = time(NULL);
+            printf("\nCurrent time from RTC: %s", ctime(( const time_t* )&epoch));
+        }
     }
 }
