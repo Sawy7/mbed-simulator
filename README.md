@@ -10,6 +10,7 @@
 ### What's new?
  - Has a stdin serial demo also thanks to [@janjongboom](https://github.com/janjongboom)
  - We almost made the MQTT demo work (but socket.recv function does not timeout so the program hangs).
+ - Dockerfile fixed.
  - Readme below is modified to reflect updated/advised setup method.
  - This also sets up a modified version of [FreeRTOS-Emulator repo](https://github.com/alxhoff/freeRTOS-Emulator) by [@alxhoff](https://github.com/alxhoff).
  - It sets up some of my favourite editors and programs too (sublime, terminator)
@@ -26,6 +27,7 @@
 ### TL;DR ?
 
  - Run `setup_script.bash`
+ - OR    `docker build . -t mbed-simulator && docker run -dp7829:7829 -it mbed-simulator`
 
  ### Video links 
  #### mbed and mbed Simulator Introduction
@@ -39,6 +41,7 @@
 # Experimental simulator for Mbed OS 5 applications
 
 **Demo: https://simulator.mbed.com**
+_(this is not the same version as the one provided here)_
 
 ![Screenshot](https://os.mbed.com/media/uploads/janjongboom/simulator2.png)
 
@@ -62,9 +65,19 @@ To make this feedback loop much shorter, we're releasing an alpha version of the
 
 ## Installation
 
+### Docker installation
+
+1. Install Docker
+1. Build the Docker image _(run below command from inside repository folder)_:  
+    `docker build . -t mbed-simulator`
+1. Run the Docker image:  
+   `docker run -dp7829:7829 -it mbed-simulator`
+1. The simulator can now be accessed at:  
+    http://localhost:7829
+
 ### Local installation
 
-**Currently Arch Linux Only (Manjaro advised)**
+**Arch Linux (Manjaro advised for students)**
 
 1. Run the setup script and follow the prompts. Note that this will download all dependencies (including Mbed OS) and will build the common `libmbed` library so this'll take some time. 
 I highly advise to give it a good read before running the script;
@@ -85,15 +98,20 @@ While this is great for a student with a fresh VM, may be disastrous if you've a
 
 **Ubuntu**
 
-It's quite possible an equivalent of the setup script could be written. I won't. But if you do, feel free to send a PR. I'll test it and accept it.
-
-**MacOS**
-
-Get a real computer.
+Follow the commands inside the Dockerfile.
 
 **Windows**
 
-Get a real development computer.
+1. Use the docker image 
+1. Or use the commands inside the Dockerfile inside
+   1. Multipass by Canonical
+   1. Windows Subsystem for Linux (WSL) and follow the commands inside 
+
+**MacOS**
+
+Get a real computer or use the docker image?
+
+_p.s. this is still unlikely to work properly in M1 macs. You really need to get a proper development computer, not an overglorified smartphone._
 
 ### Troubleshooting
 
@@ -108,19 +126,18 @@ This error is thrown on Windows systems when the path length limit is hit. Move 
 
 ## How to run the hosted version
 
-1. Install all dependencies, and clone the repository from source (see above).
+1. Install all dependencies _(cheating from Dockerfile or the setup script)_, and clone the repository from source (see above).
 1. Run:
 
-    ```
-    $ npm install
-
-    $ npm run build-demos
+    ```bash
+    npm install
+    npm run build-demos
     ```
 
 1. Then, start a web server:
 
-    ```
-    $ node server.js
+    ```bash
+    node server
     ```
 
 1. Open http://localhost:7829 in your browser.
@@ -134,8 +151,8 @@ The simulator comes with a CLI to run any Mbed OS 5 project under the simulator.
 
 To run an Mbed OS 5 project:
 
-```
-$ mbed-simulator .
+```bash
+mbed-simulator .
 ```
 
 The project will build and a web browser window will open for you.
@@ -152,8 +169,8 @@ After changing anything in the simulator HAL, you need to recompile the libmbed 
 
 1. Run:
 
-    ```
-    $ rm mbed-simulator-hal/libmbed.bc
+    ```bash
+    rm mbed-simulator-hal/libmbed.bc
     ```
 
 1. Rebuild your application. libmbed will automatically be generated.
@@ -161,8 +178,8 @@ After changing anything in the simulator HAL, you need to recompile the libmbed 
 ## Updating demos
 
 In the `out` folder a number of pre-built demos are listed. To upgrade them:
-```
-$ npm run build-demos
+```bash
+npm run build-demos
 ```
 
 ## Attribution
