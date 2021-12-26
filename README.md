@@ -10,9 +10,8 @@
 ### What's new?
  - Has a stdin serial demo also thanks to [@janjongboom](https://github.com/janjongboom)
  - We almost made the MQTT demo work (but socket.recv function does not timeout so the program hangs).
- - Dockerfile fixed.
- - Readme below is modified to reflect updated/advised setup method.
- - It sets up some of my favourite editors and programs too (sublime, terminator)
+ - Dockerfile fixed, local installation scripts for Ubuntu/Debian & Manjaro/Arch is included.
+ - Readme below is modified to reflect updated/advised setup methods.
 
 ### Documentation
  - A quick introduction video (youtube) can be found [here](https://www.youtube.com/watch?v=FjyCILASznE) and advice on running it on a VM can be found [here](https://www.youtube.com/watch?v=guM6YvnveaM).
