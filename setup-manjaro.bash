@@ -6,19 +6,10 @@
 # manjaro xfce doesnt come with below utils
 sudo pacman -S pacaur binutils fakeroot base-devel cmake make automake
 pacaur -S yay
- # yay -Rcs pidgin hexchat gimp xfburn steam-manjaro thunderbird vlc audacious hplip 
-gpg --keyserver pool.sks-keyservers.net --recv-keys F57D4F59BD3DF454
-yay -S sublime-text-3 sublime-merge 
-yay -S terminator
-yay -S bleachbit
 
 cd $HOME
 mkdir workspace
 cd workspace/
-
-# freertos-emulator and dependencies
-git clone https://github.com/alpsayin/FreeRTOS-Emulator.git
-yay -S sdl2 sdl2_gfx sdl2_image sdl2_mixer sdl2_ttf clang
 
 # mbed-simulator and dependencies
 # yay -S python2-pip
