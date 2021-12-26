@@ -34,8 +34,10 @@ yay -S emsdk
 sudo chown -R $USER:$USER /usr/lib/emsdk
 sudo emsdk update
 emsdk list --old | grep 1.38.21
-emsdk install sdk-fastcomp-1.38.21-64bit
-emsdk activate sdk-fastcomp-1.38.21-64bit
+emsdk install fastcomp-clang-e1.38.21-64bit
+emsdk activate fastcomp-clang-e1.38.21-64bit
+emsdk install emscripten-1.38.21
+emsdk activate emscripten-1.38.21
 echo 'source "/usr/lib/emsdk/emsdk_env.sh"' >> $HOME/.bashrc
 source /usr/lib/emsdk/emsdk_env.sh
 
