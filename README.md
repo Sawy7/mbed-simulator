@@ -25,8 +25,11 @@
  
 ### TL;DR ?
 
- - Run `setup_script.bash`
- - OR    `docker build . -t mbed-simulator && docker run -dp7829:7829 -it mbed-simulator`
+ - Run `setup-ubuntu.bash`
+ OR
+ - Run `setup-manjaro.bash`
+ OR
+ - Run `docker build . -t mbed-simulator && docker run -dp7829:7829 -it mbed-simulator`
 
  ### Video links 
  #### mbed and mbed Simulator Introduction
@@ -75,18 +78,18 @@ To make this feedback loop much shorter, we're releasing an alpha version of the
     http://localhost:7829
 
 ### Local installation
+Note that setup scripts will download all dependencies (including Mbed OS) and will build the common `libmbed` library so this'll take some time. 
+I highly advise to give the scripts a quick skim before running;
+ - They'll call sudo, 
+ - They'll install nvm, npm and emsdk environments. 
+While this is great for a student with a fresh VM, may be disastrous if you've a finely aged development environment _(but then you should also know better than running arbitrary scripts from internet :))_.
 
 **Arch Linux (Manjaro advised for students)**
 
-1. Run the setup script and follow the prompts. Note that this will download all dependencies (including Mbed OS) and will build the common `libmbed` library so this'll take some time. 
-I highly advise to give it a good read before running the script;
- - It'll call sudo, 
- - it will install development libraries such as SDL2, clang, binutils, fakeroot, base-devel, cmake, 
- - it'll install nvm, npm and emsdk environments. 
-While this is great for a student with a fresh VM, may be disastrous if you've a finely aged development environment (but then you should also know better than running arbitrary scripts from internet :)).
+1. Run the setup script and follow the prompts.
 
     ```
-    $ ./setup_script.bash
+    $ ./setup-manjaro.bash
     ```
 
 2. Run the simulator (this will activate some environment variables):
@@ -95,16 +98,27 @@ While this is great for a student with a fresh VM, may be disastrous if you've a
     $ ./start_mbed_simulator.bash
     ```
 
-**Ubuntu**
+**Debian (Ubuntu advised for students)**
 
-Follow the commands inside the Dockerfile.
+1. Run the setup script and follow the prompts.
+
+    ```
+    $ ./setup-ubuntu.bash
+    ```
+
+2. Run the simulator (this will activate some environment variables):
+
+    ```
+    $ ./start_mbed_simulator.bash
+    ```
 
 **Windows**
 
-1. Use the docker image 
-1. Or use the commands inside the Dockerfile inside
-   1. Multipass by Canonical
-   1. Windows Subsystem for Linux (WSL) and follow the commands inside 
+1. Use the docker image with Docker for Windows
+1. Or follow the above instructions inside
+   1. An ubuntu instance provided by Multipass by Canonical
+   1. WSL instance provided by Windows Subsystem for Linux (WSL) and follow the commands inside _(untested)_
+   1. Or any other Virtualisation choice _(e.g. Virtualbox)_
 
 **MacOS**
 
@@ -123,23 +137,13 @@ This error is thrown when you use too high an emscripten version. According to r
 
 This error is thrown on Windows systems when the path length limit is hit. Move the `mbed-simulator` folder to a folder closer to root (e.g. `C:\mbed-simulator`).
 
-## How to run the hosted version
+#### After local installation
 
-1. Install all dependencies _(cheating from Dockerfile or the setup script)_, and clone the repository from source (see above).
-1. Run:
+You must either port forward 7829 from your instance to your host machine, or your guest machine's 7829 must be accesible.
 
-    ```bash
-    npm install
-    npm run build-demos
-    ```
-
-1. Then, start a web server:
-
-    ```bash
-    node server
-    ```
-
-1. Open http://localhost:7829 in your browser.
+1. If it's the former; open http://localhost:7829 in your browser.
+1. If it's the latter; open http://<IP.ADDRESS.OF.GUEST>:7829 in your browser
+1. If it's the latter; alternatively, open http://<hostname>.local:7829 in your browser
 1. Blinky runs!
 
 ## CLI
