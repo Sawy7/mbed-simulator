@@ -22,6 +22,7 @@ RUN git clone https://github.com/emscripten-core/emsdk
 
 RUN ln -s /emsdk /usr/lib/emsdk
 RUN npm audit fix || :
+RUN npm audit fix || :
 RUN npm update -g
 
 RUN emsdk/emsdk install fastcomp-clang-e1.38.21-64bit && \
