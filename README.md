@@ -126,17 +126,6 @@ Get a real computer or use the docker image?
 
 _p.s. this is still unlikely to work properly in M1 macs. You really need to get a proper development computer, not an overglorified smartphone._
 
-### Troubleshooting
-
-**Pointer_stringify Issues**
-This error is thrown when you use too high an emscripten version. According to release notes 1.38.27 version of Emscripten aborts by default when Pointer_stringify is called. I tried 1.38.26 which didn't quite compile. So I decided to use 1.38.21 as per the original docs. Further reading below:
- - https://github.com/janjongboom/mbed-simulator/issues/44
- - https://github.com/janjongboom/mbed-simulator/issues/43
-
-**Windows: [Error 87] The parameter is incorrect**
-
-This error is thrown on Windows systems when the path length limit is hit. Move the `mbed-simulator` folder to a folder closer to root (e.g. `C:\mbed-simulator`).
-
 #### After local installation
 
 You must either port forward 7829 from your instance to your host machine, or your guest machine's 7829 must be accesible.
@@ -184,6 +173,33 @@ In the `out` folder a number of pre-built demos are listed. To upgrade them:
 ```bash
 npm run build-demos
 ```
+
+### Troubleshooting
+
+**No WebAssembly support found. Build with -s WASM=0 to target JavaScript instead.**
+This error is thrown in new Microsoft Edge browser when you enable "Enhance your security on the web". You need to add an exception for your guest vm/docker etc. address. Firefox has not caused this issue so far.
+
+**The connection for this site is not secure**
+This error is thrown when you try to access the simulator guest via its bonjour/avahi/mdns hostname. Most of the modern browsers don't like when you try to establish an unsecured HTTP connection to a hostnamed address so they try to upgrade connection. This does not occur if you use IP addresses. Sometimes they will ask if you'd like to proceed, sometimes they won't allow you to proceed at all. It's clear that disallowing plain HTTP connections will be the norm, so easiest way around is to find the ip address of the guest and use it. A trick is to ping the hostname and grab its IP by response as shown below.
+
+```powershell
+PS C:\Users\alpsa> ping -4 mbedsimulator.local
+
+Pinging mbedsimulator.local [192.168.111.6] with 32 bytes of data:
+Reply from 192.168.111.6: bytes=32 time<1ms TTL=64
+Reply from 192.168.111.6: bytes=32 time<1ms TTL=64
+...
+```
+
+
+**Pointer_stringify Issues**
+This error is thrown when you use too high an emscripten version. According to release notes 1.38.27 version of Emscripten aborts by default when Pointer_stringify is called. I tried 1.38.26 which didn't quite compile. So I decided to use 1.38.21 as per the original docs. Further reading below:
+ - https://github.com/janjongboom/mbed-simulator/issues/44
+ - https://github.com/janjongboom/mbed-simulator/issues/43
+
+**Windows: [Error 87] The parameter is incorrect**
+
+This error is thrown on Windows systems when the path length limit is hit. Move the `mbed-simulator` folder to a folder closer to root (e.g. `C:\mbed-simulator`).
 
 ## Attribution
 
