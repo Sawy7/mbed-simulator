@@ -131,8 +131,8 @@ _p.s. this is still unlikely to work properly in M1 macs. You really need to get
 You must either port forward 7829 from your instance to your host machine, or your guest machine's 7829 must be accesible.
 
 1. If it's the former; open http://localhost:7829 in your browser.
-1. If it's the latter; open http://<IP.ADDRESS.OF.GUEST>:7829 in your browser
-1. If it's the latter; alternatively, open http://<hostname>.local:7829 in your browser
+1. If it's the latter; open http://<ip.address.of.guest>:7829 in your browser
+1. If it's the latter; alternatively, open http://[guest-hostname].local:7829 in your browser
 1. Blinky runs!
 
 ## CLI
