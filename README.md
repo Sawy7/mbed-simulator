@@ -12,7 +12,6 @@
  - We almost made the MQTT demo work (but socket.recv function does not timeout so the program hangs).
  - Dockerfile fixed.
  - Readme below is modified to reflect updated/advised setup method.
- - This also sets up a modified version of [FreeRTOS-Emulator repo](https://github.com/alxhoff/freeRTOS-Emulator) by [@alxhoff](https://github.com/alxhoff).
  - It sets up some of my favourite editors and programs too (sublime, terminator)
 
 ### Documentation
