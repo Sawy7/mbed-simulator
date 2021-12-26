@@ -1,27 +1,42 @@
-FROM node:12.14
 
-ENV PATH="/emsdk:/emsdk/emscripten/tag-1.38.21:${PATH}"
+FROM node:16
+
+ENV PATH="${PATH}:/emsdk:/emsdk/fastcomp-clang/e1.38.21_64bit:/emsdk/emscripten/1.38.21"
 ENV EMSDK="/emsdk"
-ENV EM_CONFIG="/root/.emscripten"
-ENV EMSCRIPTEN="/emsdk/emscripten/tag-1.38.21"
-ENV EMSCRIPTEN_NATIVE_OPTIMIZER="/emsdk/emscripten/tag-1.38.21_64bit_optimizer/optimizer"
+ENV EM_CONFIG="/emsdk/.emscripten"
+ENV EMSCRIPTEN="/emsdk/emscripten/1.38.21"
+ENV EMSCRIPTEN_NATIVE_OPTIMIZER="/emsdk/fastcomp-clang/e1.38.21_64bit/optimizer"
+ENV LLVM_ROOT="/emsdk/fastcomp-clang/e1.38.21_64bit"
+ENV BINARYEN_ROOT="/emsdk/fastcomp-clang/e1.38.21_64bit/binaryen"
+ENV EMSDK_NODE="/usr/bin/node"
+ENV EMCC_WASM_BACKEND="0"
+ENV EM_CACHE="/emsdk/emscripten/1.38.21/cache"
 
-RUN apt-get update -qq && apt-get -qqy install \
-        cmake git python-dev python-pip && \
-    pip install mbed-cli mercurial && \
-    git clone https://github.com/emscripten-core/emsdk
+RUN apt-get update -qq && \
+    apt-get -qqy install \
+    cmake git python3-dev python3-pip npm
+
+RUN python3 -m pip install mbed-cli mercurial
+
+RUN git clone https://github.com/emscripten-core/emsdk
+
+RUN ln -s /emsdk /usr/lib/emsdk
+RUN npm audit fix || :
+RUN npm update -g
 
 RUN emsdk/emsdk install fastcomp-clang-e1.38.21-64bit && \
     emsdk/emsdk activate fastcomp-clang-e1.38.21-64bit && \
-    emsdk/emsdk install emscripten-tag-1.38.21-64bit && \
-    emsdk/emsdk activate emscripten-tag-1.38.21-64bit
+    emsdk/emsdk install emscripten-1.38.21 && \
+    emsdk/emsdk activate emscripten-1.38.21
 
-ADD . /app
+ADD . /mbed-simulator
 
-WORKDIR /app
+WORKDIR /mbed-simulator
 
-RUN npm install && npm run build-demos
+RUN npm install && npm install . -g
+RUN npm audit fix || :
+RUN npm run build-demos
 
 EXPOSE 7829
 
-CMD ["node", "server.js"]
+CMD ["node", "server"]
