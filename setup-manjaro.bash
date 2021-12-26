@@ -12,8 +12,6 @@ mkdir workspace
 cd workspace/
 
 # mbed-simulator and dependencies
-# yay -S python2-pip
-# python2 -m pip install mbed-cli
 yay -S python-pip
 python3 -m pip install mbed-cli
 yay -S mercurial
