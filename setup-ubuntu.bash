@@ -1,7 +1,8 @@
 sudo apt update && sudo apt upgrade -y
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-source ~/.bashrc
-nvm install --lts
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completionnvm install --lts
 sudo apt install python3-pip python-is-python3 mercurial avahi-daemon
 sudo python3 -m pip install mbed-cli
 cd
