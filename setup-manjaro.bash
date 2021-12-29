@@ -34,6 +34,8 @@ git clone https://github.com/alpsayin/mbed-simulator.git
 cd mbed-simulator
 npm install
 npm install . -g
+RUN npm audit fix
+RUN npm audit fix
 npm run build-demos
 
 source start_mbed_simulator.bash
