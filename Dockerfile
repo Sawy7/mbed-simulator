@@ -21,8 +21,6 @@ RUN python3 -m pip install mbed-cli mercurial
 RUN git clone https://github.com/emscripten-core/emsdk
 
 RUN ln -s /emsdk /usr/lib/emsdk
-RUN npm audit fix || :
-RUN npm audit fix || :
 RUN npm update -g
 
 RUN emsdk/emsdk install fastcomp-clang-e1.38.21-64bit && \
@@ -35,6 +33,7 @@ ADD . /mbed-simulator
 WORKDIR /mbed-simulator
 
 RUN npm install && npm install . -g
+RUN npm audit fix || :
 RUN npm audit fix || :
 RUN npm run build-demos
 
