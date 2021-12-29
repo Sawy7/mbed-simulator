@@ -114,9 +114,11 @@ While this is great for a student with a fresh VM, may be disastrous if you've a
 
 **Windows**
 
-1. Use the docker image with Docker for Windows
+1. Use the docker image with:
+   1. Docker Desktop for Windows (easiest)
+   1. Docker daemon running inside WSL2 instance provided by Windows Subsystem for Linux 
 1. Or follow the above instructions inside
-   1. An ubuntu instance provided by Multipass by Canonical
+   1. An ubuntu instance provided by Multipass by Canonical (easiest)
    1. WSL instance provided by Windows Subsystem for Linux (WSL) and follow the commands inside _(untested)_
    1. Or any other Virtualisation choice _(e.g. Virtualbox)_
 
