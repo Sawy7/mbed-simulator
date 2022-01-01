@@ -1,4 +1,5 @@
 #define MBED_CONF_MBED_TRACE_ENABLE 1
+#define MBED_TRACE_MAX_LEVEL TRACE_LEVEL_INFO
 #include "mbed.h"
 #include "mbed-trace/mbed_trace.h"
 #define TRACE_GROUP  "cs431"
