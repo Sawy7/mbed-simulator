@@ -108,6 +108,6 @@ document.querySelector('#run').onclick = function() {
 
 
 document.querySelector('#viewportSlider').oninput = function() {
-    document.getElementById('viewer').style.width = this.value + 'vw';
+    document.getElementById('editor-container').style.width = this.value + 'vw';
     document.getElementById('viewer').style.width = (100-this.value) + 'vw';
 };
