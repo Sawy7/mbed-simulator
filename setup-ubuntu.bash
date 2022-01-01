@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 nvm install --lts
 sudo apt install python3-pip python-is-python3 mercurial avahi-daemon
 sudo python3 -m pip install mbed-cli
-cd
+cd $HOME
 mkdir workspace
 cd workspace
 git clone --recurse-submodules https://github.com/alpsayin/mbed-simulator
