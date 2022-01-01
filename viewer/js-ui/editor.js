@@ -105,3 +105,9 @@ document.querySelector('#run').onclick = function() {
     x.setRequestHeader('Content-Type', 'application/json');
     x.send(JSON.stringify({ code: editor.getValue() }));
 }
+
+
+document.querySelector('#viewportSlider').oninput = function() {
+    document.getElementById('viewer').style.width = this.value + 'vw';
+    document.getElementById('viewer').style.width = (100-this.value) + 'vw';
+};
