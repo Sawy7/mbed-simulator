@@ -117,7 +117,7 @@ body {
 
 #viewer {
   border: 0;
-  width: 50vw;
+  width: 55vw;
   border-left: solid 1px #ccc;
 }
 
@@ -128,7 +128,7 @@ body {
 }
 
 #editor-container {
-  width: 50vw;
+  width: 45vw;
   height: calc(100vh - 63px);
   position: relative;
 }
