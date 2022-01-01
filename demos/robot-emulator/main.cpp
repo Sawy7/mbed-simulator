@@ -43,7 +43,7 @@ class Ultrasonic
             if(this->echo_isr != NULL)
             {
                 const float delay = (20.0+this->ain->read()*400.0)/SPEED_OF_SOUND;
-                printf("Emulating %.0fus delay\n", delay*1e6);
+                tr_debug("Ultrasonic: emulating %.0fus delay\n", delay*1e6);
                 this->delayer->attach_us(this->echo_isr, delay*1e6);
             }
         }
