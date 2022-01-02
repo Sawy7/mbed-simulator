@@ -25,7 +25,7 @@
 
         var img = document.createElement('img');
         img.src = '/img/' + 'push_button.png';
-        img.style.width = '150px';
+        img.style.width = '60px';
         el.appendChild(img);
 
         el.onmousedown = function() {

@@ -27,7 +27,7 @@
 
         var img = document.createElement('img');
         img.src = '/img/' + this.img;
-        img.style.width = '30px';
+        img.style.width = '15px';
         el.appendChild(img);
 
         this.componentsEl.appendChild(el);

@@ -30,7 +30,7 @@
         this.ON = false;
         var img = document.createElement('img');
         img.src = switchOffImage;
-        img.style.width = '150px';
+        img.style.width = '60px';
 
         el.onmousedown = function() {
             if (this.ON == false){
