@@ -43,8 +43,9 @@ body {
 }
 
 #board-svg {
-  width: 50vw;
-  height: 22.5vw;
+  /*width: 50vw;*/
+  /*height: 22.5vw;*/
+  height: 140px;
   font-family: 'Lucida Console', Monaco, monospace;
 }
 
