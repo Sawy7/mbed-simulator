@@ -39,44 +39,44 @@ const char SSL_CA_PEM[] = "-----BEGIN CERTIFICATE-----\n"
 
 
 void dump_response(HttpResponse* res) {
-    mbedtls_printf("Status: %d - %s\n", res->get_status_code(), res->get_status_message().c_str());
+  mbedtls_printf("Status: %d - %s\n", res->get_status_code(), res->get_status_message().c_str());
 
-    mbedtls_printf("Headers:\n");
-    for (size_t ix = 0; ix < res->get_headers_length(); ix++) {
-        mbedtls_printf("\t%s: %s\n", res->get_headers_fields()[ix]->c_str(), res->get_headers_values()[ix]->c_str());
-    }
-    mbedtls_printf("\nBody (%d bytes):\n\n%s\n", res->get_body_length(), res->get_body_as_string().c_str());
+  mbedtls_printf("Headers:\n");
+  for (size_t ix = 0; ix < res->get_headers_length(); ix++) {
+    mbedtls_printf("\t%s: %s\n", res->get_headers_fields()[ix]->c_str(), res->get_headers_values()[ix]->c_str());
+  }
+  mbedtls_printf("\nBody (%d bytes):\n\n%s\n", res->get_body_length(), res->get_body_as_string().c_str());
 }
 
 int main() {
-    NetworkInterface *network = NetworkInterface::get_default_instance();
-    if (network->connect() != 0) {
-        printf("Could not connect to the network...\n");
-        return 1;
+  NetworkInterface *network = NetworkInterface::get_default_instance();
+  if (network->connect() != 0) {
+    printf("Could not connect to the network...\n");
+    return 1;
+  }
+
+  mbed_trace_init();
+
+  // note that this example sets up a new TLS socket for every request... that's wasteful!
+  // you can set up a socket manually and pass it in, see the TLS Socket example
+
+  // GET request to httpbin.org
+  {
+    printf("\n----- HTTPS GET request -----\n");
+
+    HttpsRequest* get_req = new HttpsRequest(network, SSL_CA_PEM, HTTP_GET, "https://hastebin.com/raw/iqibadusug");
+
+    HttpResponse* get_res = get_req->send();
+    if (!get_res) {
+      printf("HttpsRequest failed (error code %d)\n", get_req->get_error());
+      return 1;
     }
+    printf("\n----- HTTPS GET response -----\n");
+    dump_response(get_res);
 
-    mbed_trace_init();
+    delete get_req;
+  }
 
-    // note that this example sets up a new TLS socket for every request... that's wasteful!
-    // you can set up a socket manually and pass it in, see the TLS Socket example
-
-    // GET request to httpbin.org
-    {
-        printf("\n----- HTTPS GET request -----\n");
-
-        HttpsRequest* get_req = new HttpsRequest(network, SSL_CA_PEM, HTTP_GET, "https://hastebin.com/raw/iqibadusug");
-
-        HttpResponse* get_res = get_req->send();
-        if (!get_res) {
-            printf("HttpsRequest failed (error code %d)\n", get_req->get_error());
-            return 1;
-        }
-        printf("\n----- HTTPS GET response -----\n");
-        dump_response(get_res);
-
-        delete get_req;
-    }
-
-    wait(osWaitForever);
+  wait(osWaitForever);
 }
 

@@ -7,22 +7,22 @@ Sht31 sht31(I2C_SDA, I2C_SCL);
 DigitalOut led(LED1);
 
 int main() {
-    printf("Set the temperature above 25 degrees to trigger the warning LED\n");
+  printf("Set the temperature above 25 degrees to trigger the warning LED\n");
 
-    while (1) {
-        lcd.cls();
+  while (1) {
+    lcd.cls();
 
-        float temp = sht31.readTemperature();
-        float humidity = sht31.readHumidity();
+    float temp = sht31.readTemperature();
+    float humidity = sht31.readHumidity();
 
-        lcd.locate(3, 3);
-        lcd.printf("Temperature: %.2f C", temp);
-        lcd.locate(3, 13);
-        lcd.printf("Humidity: %.2f %%", humidity);
+    lcd.locate(3, 3);
+    lcd.printf("Temperature: %.2f C", temp);
+    lcd.locate(3, 13);
+    lcd.printf("Humidity: %.2f %%", humidity);
 
-        // turn on LED if the temperature is above 25 degrees
-        led = temp > 25.0f;
+    // turn on LED if the temperature is above 25 degrees
+    led = temp > 25.0f;
 
-        wait(0.5f);
-    }
+    wait(0.5f);
+  }
 }
