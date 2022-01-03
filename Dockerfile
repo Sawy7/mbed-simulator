@@ -1,5 +1,5 @@
 
-FROM node:16
+FROM node:16-slim
 
 ENV PATH="${PATH}:/emsdk:/emsdk/fastcomp-clang/e1.38.21_64bit:/emsdk/emscripten/1.38.21"
 ENV EMSDK="/emsdk"
