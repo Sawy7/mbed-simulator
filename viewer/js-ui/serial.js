@@ -3,6 +3,7 @@
         scrollback: 1000000
     });
     const fitAddon = new FitAddon.FitAddon();
+    terminal.loadAddon(new WebLinksAddon.WebLinksAddon());
     terminal.loadAddon(fitAddon);
     terminal.open(document.querySelector('#output'));
     fitAddon.fit();
