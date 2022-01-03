@@ -2,6 +2,7 @@ var editor = ace.edit("editor");
 editor.setTheme("ace/theme/textmate");
 editor.getSession().setMode("ace/mode/c_cpp");
 editor.session.setTabSize(2);
+editor.setOption('scrollPastEnd', 0.5);
 
 var simulatorFrame = document.querySelector('#viewer iframe');
 var compilationFailed = document.querySelector('#compilation-failed');
