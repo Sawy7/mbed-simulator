@@ -32,7 +32,7 @@ ADD . /mbed-simulator
 
 WORKDIR /mbed-simulator
 
-RUN npm install && npm install . -g
+RUN npm install
 RUN npm audit fix || :
 RUN npm audit fix || :
 RUN npm run build-demos

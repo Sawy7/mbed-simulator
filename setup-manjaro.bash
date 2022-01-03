@@ -33,7 +33,6 @@ source /usr/lib/emsdk/emsdk_env.sh
 git clone https://github.com/alpsayin/mbed-simulator.git
 cd mbed-simulator
 npm install
-npm install . -g
 RUN npm audit fix
 RUN npm audit fix
 npm run build-demos
