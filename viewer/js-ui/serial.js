@@ -56,6 +56,12 @@ window.xtermFitAddon = new FitAddon.FitAddon();
     });
 
     window.addEventListener('keypress', function(e) {
+	console.log('window keypress:', e);
         window.MbedJSHal.serial.onStdIn(e.charCode);
+    });
+
+    terminal.onKey(function(e) {
+	console.log('terminal onkey:', e);
+	window.MbedJSHal.serial.onStdIn(e.key.charCodeAt(0));
     });
 })();
