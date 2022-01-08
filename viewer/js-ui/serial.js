@@ -11,11 +11,6 @@ window.xtermFitAddon = new FitAddon.FitAddon();
     window.terminal = terminal;
 
     window.addEventListener('load', function(){
-        document.getElementById('fit-btn').addEventListener('click', function() {
-            if(window.xtermFitAddon !== undefined) {
-                window.xtermFitAddon.fit();
-            }
-        }, false);
         document.getElementById('output').addEventListener('click', function() {
             if(window.xtermFitAddon !== undefined) {
                 window.xtermFitAddon.fit();

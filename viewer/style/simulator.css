@@ -201,21 +201,6 @@ body {
   background: rgb(209, 255, 209);
 }
 
-#fit-btn {
-  border: solid 1px green;
-  display: inline-block;
-  padding: 10px;
-  line-height: 3px;
-  font-size: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  color: green;
-}
-
-#fit-btn:hover {
-  background: rgb(209, 255, 209);
-}
-
 #overlay {
   position: absolute;
   top: 0;
