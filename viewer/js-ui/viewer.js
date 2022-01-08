@@ -156,4 +156,12 @@ document.querySelector('#select-component').onchange = function(e) {
 
 document.querySelector('#select-component').onchange();
 
+    document.getElementById('xtermSlider').addEventListener('input', function() {
+	document.getElementById('output').style.height = this.value + 'px';
+    }, false);
+    document.getElementById('xtermSlider').addEventListener('wheel', function(e) {
+	this.value = this.value - e.deltaY / 4;
+	document.getElementById('output').style.height = this.value + 'px';
+    }, false);
+    
 })();

@@ -113,3 +113,9 @@ document.getElementById('viewportSlider').addEventListener('input', function() {
     document.getElementById('editor-container').style.width = this.value + 'vw';
     document.getElementById('viewer').style.width = (100-this.value) + 'vw';
 }, false);
+
+document.getElementById('viewportSlider').addEventListener('wheel', function(e) {
+    this.value = this.value - e.deltaY / 100;
+    document.getElementById('editor-container').style.width = this.value + 'vw';
+    document.getElementById('viewer').style.width = (100-this.value) + 'vw';
+}, false);
