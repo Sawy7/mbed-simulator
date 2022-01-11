@@ -42,8 +42,11 @@ _(whatever's left of it from my modifications...)_
 
 # Experimental simulator for Mbed OS 5 applications
 
-**Demo: https://simulator.mbed.com**
-_(this is not the same version as the one provided in this fork)_
+**Demo: https://mbed-simulator.alpsayin.com**
+
+**Demo (dark): https://mbed-simulator-dark.alpsayin.com**
+
+_(I'm self hosting these, so please be nice to my servers)_
 
 ![Screenshot](https://os.mbed.com/media/uploads/janjongboom/simulator2.png)
 
