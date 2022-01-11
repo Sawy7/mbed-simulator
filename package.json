@@ -5,7 +5,9 @@
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-demos": "node build-demos.js"
+    "build-demos": "node build-demos.js",
+    "server": "node server.js",
+    "build": "run() { node cli.js -v -i $1 -o out/ --compiler-opts -O2; }; run"
   },
   "bin": {
     "mbed-simulator": "./cli.js"
