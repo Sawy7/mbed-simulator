@@ -1,0 +1,13 @@
+[Unit]
+Description=mBed Simulator Docker Runner
+
+[Service]
+User=architect
+Type=simple
+ExecStart=docker run -p7829:7829 --name mbed-simulatord -t mbed-simulator
+ExecStop=docker rm -f mbed-simulatord
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=multi-user.target
