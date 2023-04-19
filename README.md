@@ -46,7 +46,7 @@ _(whatever's left of it from my modifications...)_
 
 **Demo (dark): https://mbed-simulator-dark.alpsayin.com**
 
-_(I'm self hosting these, so please be nice to my servers)_
+_(I had to take them down because they expose potential security holes in my network, I'll start hosting them again if I can find a throwaway host)_
 
 ![Screenshot](https://os.mbed.com/media/uploads/janjongboom/simulator2.png)
 
