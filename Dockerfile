@@ -19,6 +19,7 @@ RUN apt-get update -qq && \
 RUN python3 -m pip install mbed-cli mercurial
 
 RUN git clone https://github.com/emscripten-core/emsdk
+RUN cd emsdk && git reset --hard 0b2084f # use emsdk 3.1.29
 
 RUN ln -s /emsdk /usr/lib/emsdk
 RUN npm update -g
